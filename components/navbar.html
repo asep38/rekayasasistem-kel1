@@ -1,0 +1,36 @@
+<header x-data="{ scrolled: false, mobileOpen: false }"
+x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 10 })"
+:class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }"
+class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<!-- Logo -->
+<a href="#" class="text-2xl font-bold text-blue-600">Kelompok 1</a>
+
+<!-- Desktop Menu -->
+<nav class="hidden md:flex space-x-8 items-center text-gray-800">
+<a href="#beranda" class="hover:text-blue-600 transition">Beranda</a>
+<a href="#tentang" class="hover:text-blue-600 transition">Tugas Rekayasa Sistem</a>
+</nav>
+
+<!-- Hamburger -->
+<button @click="mobileOpen = !mobileOpen" class="md:hidden focus:outline-none text-gray-800">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+   viewBox="0 0 24 24" stroke="currentColor">
+  <path :class="mobileOpen ? 'hidden' : 'block'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16" />
+  <path :class="mobileOpen ? 'block' : 'hidden'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+</div>
+
+<!-- Mobile Menu -->
+<div x-show="mobileOpen" x-transition class="md:hidden bg-white shadow-md">
+  <nav class="flex flex-col space-y-4 p-6 text-gray-800">
+    <a href="#beranda" class="hover:text-blue-600 transition">Beranda</a>
+    <a href="#Tugas" class="hover:text-blue-600 transition">Tugas Rekayasa Sistem</a>
+
+  </nav>
+</div>
+</header>
+<!-- <script src="https://unpkg.com/alpinejs" defer></script> -->
